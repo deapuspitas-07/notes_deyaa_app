@@ -1,33 +1,55 @@
+/* =========================================
+   MY MELODY NOTES APP 🎀
+========================================= */
+
+
+/* =========================
+   DATA
+========================= */
+
 let catatan = JSON.parse(
     localStorage.getItem("catatan")
 ) || [];
 
+
 let modeEdit = false;
+
 let idEdit = null;
 
 
 /* =========================
-   SIMPAN / UPDATE CATATAN
+   SIMPAN CATATAN
 ========================= */
 
 function simpanCatatan() {
 
-    let judul =
-        document.getElementById("judul").value.trim();
+    const judul =
+        document
+            .getElementById("judul")
+            .value
+            .trim();
 
-    let isi =
-        document.getElementById("isi").value.trim();
+
+    const isi =
+        document
+            .getElementById("isi")
+            .value
+            .trim();
 
 
     if (judul === "" || isi === "") {
 
-        alert("Judul dan isi catatan harus diisi!");
+        alert(
+            "Judul dan isi catatan harus diisi! 🎀"
+        );
 
         return;
     }
 
 
-    /* MODE EDIT */
+    /* =========================
+       EDIT
+    ========================= */
 
     if (modeEdit) {
 
@@ -36,43 +58,43 @@ function simpanCatatan() {
             if (data.id === idEdit) {
 
                 return {
+
                     ...data,
+
                     judul: judul,
+
                     isi: isi,
-                    tanggal: new Date().toLocaleString("id-ID")
+
+                    tanggal:
+                        new Date()
+                            .toLocaleString(
+                                "id-ID"
+                            )
+
                 };
 
             }
+
 
             return data;
 
         });
 
 
-        modeEdit = false;
-        idEdit = null;
-
-
-        document.getElementById("btnSimpan")
-            .innerHTML = "💾 Simpan Catatan";
-
-        document.getElementById("btnBatal")
-            .style.display = "none";
-
-        document.getElementById("formTitle")
-            .innerHTML = "✨ Buat Catatan";
-
-
-        alert("Catatan berhasil diperbarui!");
+        alert(
+            "Catatan berhasil diperbarui! 💗"
+        );
 
     }
 
 
-    /* MODE TAMBAH */
+    /* =========================
+       TAMBAH BARU
+    ========================= */
 
     else {
 
-        let data = {
+        const data = {
 
             id: Date.now(),
 
@@ -80,7 +102,11 @@ function simpanCatatan() {
 
             isi: isi,
 
-            tanggal: new Date().toLocaleString("id-ID")
+            tanggal:
+                new Date()
+                    .toLocaleString(
+                        "id-ID"
+                    )
 
         };
 
@@ -90,15 +116,18 @@ function simpanCatatan() {
     }
 
 
+    /* SIMPAN */
+
     localStorage.setItem(
         "catatan",
         JSON.stringify(catatan)
     );
 
 
-    kosongkanForm();
+    resetForm();
 
     tampilkanCatatan();
+
 }
 
 
@@ -110,24 +139,37 @@ function tampilkanCatatan(
     dataTampil = catatan
 ) {
 
-    let daftar =
-        document.getElementById("daftarCatatan");
+    const daftar =
+        document
+            .getElementById(
+                "daftarCatatan"
+            );
 
 
     daftar.innerHTML = "";
 
 
-    document.getElementById("jumlahCatatan")
-        .innerHTML =
-        catatan.length + " Catatan";
+    /* JUMLAH CATATAN */
 
+    document
+        .getElementById(
+            "jumlahCatatan"
+        )
+        .textContent =
+        catatan.length +
+        " Catatan";
+
+
+    /* KOSONG */
 
     if (dataTampil.length === 0) {
 
         daftar.innerHTML = `
+
             <div class="empty">
-                <div style="font-size:40px;">
-                    📝
+
+                <div class="empty-icon">
+                    🐰🎀
                 </div>
 
                 <h3>
@@ -135,32 +177,42 @@ function tampilkanCatatan(
                 </h3>
 
                 <p>
-                    Yuk buat catatan pertamamu!
+                    Yuk buat catatan pertamamu 💗
                 </p>
+
             </div>
+
         `;
 
         return;
     }
 
 
+    /* LOOP DATA */
+
     dataTampil.forEach(function(data) {
 
         daftar.innerHTML += `
 
-            <div class="catatan">
+            <article class="catatan">
 
                 <h3>
                     ${escapeHTML(data.judul)}
                 </h3>
 
+
                 <p>
                     ${escapeHTML(data.isi)}
                 </p>
 
+
                 <div class="tanggal">
-                    📅 ${data.tanggal || "-"}
+
+                    📅
+                    ${data.tanggal || "-"}
+
                 </div>
+
 
                 <div class="aksi">
 
@@ -172,6 +224,7 @@ function tampilkanCatatan(
 
                     </button>
 
+
                     <button
                         class="hapus"
                         onclick="hapusCatatan(${data.id})">
@@ -182,11 +235,12 @@ function tampilkanCatatan(
 
                 </div>
 
-            </div>
+            </article>
 
         `;
 
     });
+
 }
 
 
@@ -196,23 +250,31 @@ function tampilkanCatatan(
 
 function editCatatan(id) {
 
-    let data =
-        catatan.find(function(item) {
+    const data =
+        catatan.find(
+            function(item) {
 
-            return item.id === id;
+                return item.id === id;
 
-        });
+            }
+        );
 
 
     if (!data) {
+
         return;
     }
 
 
-    document.getElementById("judul").value =
+    document
+        .getElementById("judul")
+        .value =
         data.judul;
 
-    document.getElementById("isi").value =
+
+    document
+        .getElementById("isi")
+        .value =
         data.isi;
 
 
@@ -221,25 +283,38 @@ function editCatatan(id) {
     idEdit = id;
 
 
-    document.getElementById("formTitle")
-        .innerHTML =
+    /* UBAH JUDUL */
+
+    document
+        .getElementById("formTitle")
+        .textContent =
         "✏️ Edit Catatan";
 
 
-    document.getElementById("btnSimpan")
-        .innerHTML =
+    /* UBAH TOMBOL */
+
+    document
+        .getElementById("btnSimpan")
+        .textContent =
         "🔄 Update Catatan";
 
 
-    document.getElementById("btnBatal")
+    /* TAMPILKAN BATAL */
+
+    document
+        .getElementById("btnBatal")
         .style.display =
         "block";
 
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    /* SCROLL KE FORM */
+
+    document
+        .querySelector(".form-card")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
 }
 
@@ -255,49 +330,37 @@ function batalEdit() {
     idEdit = null;
 
 
-    kosongkanForm();
-
-
-    document.getElementById("formTitle")
-        .innerHTML =
-        "✨ Buat Catatan";
-
-
-    document.getElementById("btnSimpan")
-        .innerHTML =
-        "💾 Simpan Catatan";
-
-
-    document.getElementById("btnBatal")
-        .style.display =
-        "none";
+    resetForm();
 
 }
 
 
 /* =========================
-   HAPUS CATATAN
+   HAPUS
 ========================= */
 
 function hapusCatatan(id) {
 
-    let yakin = confirm(
-        "Apakah kamu yakin ingin menghapus catatan ini?"
-    );
+    const yakin =
+        confirm(
+            "Yakin ingin menghapus catatan ini? 🥺"
+        );
 
 
     if (!yakin) {
+
         return;
     }
 
 
-    catatan = catatan.filter(
-        function(data) {
+    catatan =
+        catatan.filter(
+            function(data) {
 
-            return data.id !== id;
+                return data.id !== id;
 
-        }
-    );
+            }
+        );
 
 
     localStorage.setItem(
@@ -312,71 +375,125 @@ function hapusCatatan(id) {
 
 
 /* =========================
-   CARI CATATAN
+   SEARCH
 ========================= */
 
 function cariCatatan() {
 
-    let keyword =
-        document.getElementById("search")
+    const keyword =
+        document
+            .getElementById("search")
             .value
-            .toLowerCase();
+            .toLowerCase()
+            .trim();
 
 
-    let hasil = catatan.filter(
-        function(data) {
+    const hasil =
+        catatan.filter(
+            function(data) {
 
-            return (
-                data.judul
-                    .toLowerCase()
-                    .includes(keyword)
-                ||
-                data.isi
-                    .toLowerCase()
-                    .includes(keyword)
-            );
+                return (
 
-        }
-    );
+                    data.judul
+                        .toLowerCase()
+                        .includes(keyword)
+
+                    ||
+
+                    data.isi
+                        .toLowerCase()
+                        .includes(keyword)
+
+                );
+
+            }
+        );
 
 
     tampilkanCatatan(hasil);
+
 }
 
 
 /* =========================
-   KOSONGKAN FORM
+   RESET FORM
 ========================= */
 
-function kosongkanForm() {
+function resetForm() {
 
-    document.getElementById("judul")
+    document
+        .getElementById("judul")
         .value = "";
 
-    document.getElementById("isi")
+
+    document
+        .getElementById("isi")
         .value = "";
+
+
+    document
+        .getElementById("formTitle")
+        .textContent =
+        "✨ Buat Catatan";
+
+
+    document
+        .getElementById("btnSimpan")
+        .textContent =
+        "💾 Simpan Catatan";
+
+
+    document
+        .getElementById("btnBatal")
+        .style.display =
+        "none";
+
+
+    modeEdit = false;
+
+    idEdit = null;
 
 }
 
 
 /* =========================
-   KEAMANAN HTML
+   ESCAPE HTML
 ========================= */
 
 function escapeHTML(text) {
 
-    return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 /* =========================
-   TAMPILKAN SAAT DIBUKA
+   LOAD DATA
 ========================= */
 
 tampilkanCatatan();
@@ -389,7 +506,9 @@ tampilkanCatatan();
 if ("serviceWorker" in navigator) {
 
     navigator.serviceWorker
-        .register("service-worker.js")
+        .register(
+            "service-worker.js"
+        )
 
         .then(function() {
 
