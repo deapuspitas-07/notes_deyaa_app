@@ -8,9 +8,12 @@
         content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color"
-        content="#6c5ce7">
+        content="#e86f9d">
 
-    <title>Notes App</title>
+    <meta name="description"
+        content="Aplikasi catatan sederhana dengan tema pink">
+
+    <title>My Melody Notes 🎀</title>
 
     <link rel="stylesheet"
         href="style.css">
@@ -21,74 +24,125 @@
 
 <body>
 
-    <div class="container">
+    <!-- DEKORASI -->
+    <div class="dekor dekor-1">🎀</div>
+    <div class="dekor dekor-2">🌸</div>
+    <div class="dekor dekor-3">♡</div>
 
-        <!-- HEADER -->
-        <header>
-            <div class="logo">📝</div>
 
-            <div>
-                <h1>Notes App</h1>
-                <p>Catat ide dan tugasmu di sini ✨</p>
+    <main class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <div class="logo">
+                🐰
             </div>
+
+            <div class="header-text">
+
+                <h1>
+                    Notes App
+                </h1>
+
+                <p>
+                    Catat ide dan tugasmu di sini ✨
+                </p>
+
+            </div>
+
         </header>
 
 
-        <!-- FORM -->
-        <div class="form">
+        <!-- ================= FORM ================= -->
 
-            <h2 id="formTitle">
-                ✨ Buat Catatan
-            </h2>
+        <section class="form-card">
 
-            <input
-                type="text"
-                id="judul"
-                placeholder="Masukkan judul catatan..."
-                autocomplete="off">
+            <div class="form-header">
 
-            <textarea
-                id="isi"
-                placeholder="Tulis isi catatan di sini..."
-                rows="6"></textarea>
+                <h2 id="formTitle">
+                    ✨ Buat Catatan
+                </h2>
+
+                <span class="ribbon">
+                    🎀
+                </span>
+
+            </div>
+
+
+            <div class="input-wrapper">
+
+                <input
+                    type="text"
+                    id="judul"
+                    placeholder="Masukkan judul catatan..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <div class="input-wrapper">
+
+                <textarea
+                    id="isi"
+                    rows="6"
+                    placeholder="Tulis isi catatan di sini..."></textarea>
+
+            </div>
+
 
             <div class="button-group">
 
                 <button
                     id="btnSimpan"
+                    class="btn-simpan"
                     onclick="simpanCatatan()">
+
                     💾 Simpan Catatan
+
                 </button>
+
 
                 <button
                     id="btnBatal"
-                    class="batal"
-                    onclick="batalEdit()"
-                    style="display: none;">
+                    class="btn-batal"
+                    onclick="batalEdit()">
+
                     ❌ Batal
+
                 </button>
 
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- SEARCH -->
-        <div class="search-box">
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-card">
+
+            <div class="search-icon">
+                🔍
+            </div>
 
             <input
                 type="text"
                 id="search"
-                placeholder="🔍 Cari catatan..."
+                placeholder="Cari catatan..."
                 oninput="cariCatatan()">
 
-        </div>
+        </section>
 
 
-        <!-- INFO -->
-        <div class="info">
+        <!-- ================= DAFTAR ================= -->
 
-            <h2>📚 Daftar Catatan</h2>
+        <div class="list-header">
+
+            <h2>
+                📚 Daftar Catatan
+            </h2>
 
             <span id="jumlahCatatan">
                 0 Catatan
@@ -97,10 +151,18 @@
         </div>
 
 
-        <!-- DAFTAR CATATAN -->
-        <div id="daftarCatatan"></div>
+        <section id="daftarCatatan"
+            class="notes-container">
 
-    </div>
+        </section>
+
+
+    </main>
+
+
+    <footer>
+        Made with 💗 for your notes
+    </footer>
 
 
     <script src="app.js"></script>
