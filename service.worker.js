@@ -1,4 +1,4 @@
-const CACHE_NAME = "notes-app-v1";
+const CACHE_NAME = "melody-notes-v2";
 
 
 const FILES_TO_CACHE = [
@@ -18,13 +18,18 @@ const FILES_TO_CACHE = [
 ];
 
 
+/* =========================
+   INSTALL
+========================= */
+
 self.addEventListener(
     "install",
     function(event) {
 
         event.waitUntil(
 
-            caches.open(CACHE_NAME)
+            caches
+                .open(CACHE_NAME)
 
                 .then(function(cache) {
 
@@ -36,9 +41,61 @@ self.addEventListener(
 
         );
 
+        self.skipWaiting();
+
     }
 );
 
+
+/* =========================
+   ACTIVATE
+========================= */
+
+self.addEventListener(
+    "activate",
+    function(event) {
+
+        event.waitUntil(
+
+            caches
+                .keys()
+
+                .then(function(cacheNames) {
+
+                    return Promise.all(
+
+                        cacheNames.map(
+                            function(cacheName) {
+
+                                if (
+                                    cacheName !==
+                                    CACHE_NAME
+                                ) {
+
+                                    return caches.delete(
+                                        cacheName
+                                    );
+
+                                }
+
+                            }
+                        )
+
+                    );
+
+                })
+
+        );
+
+        self.clients.claim();
+
+    }
+);
+
+
+/* =========================
+   FETCH
+========================= */
 
 self.addEventListener(
     "fetch",
@@ -46,7 +103,8 @@ self.addEventListener(
 
         event.respondWith(
 
-            caches.match(event.request)
+            caches
+                .match(event.request)
 
                 .then(function(response) {
 
@@ -56,7 +114,10 @@ self.addEventListener(
 
                     }
 
-                    return fetch(event.request);
+
+                    return fetch(
+                        event.request
+                    );
 
                 })
 
