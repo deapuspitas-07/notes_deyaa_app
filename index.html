@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+        content="#6c5ce7">
+
+    <title>Notes App</title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <link rel="manifest"
+        href="manifest.json">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="logo">📝</div>
+
+            <div>
+                <h1>Notes App</h1>
+                <p>Catat ide dan tugasmu di sini ✨</p>
+            </div>
+        </header>
+
+
+        <!-- FORM -->
+        <div class="form">
+
+            <h2 id="formTitle">
+                ✨ Buat Catatan
+            </h2>
+
+            <input
+                type="text"
+                id="judul"
+                placeholder="Masukkan judul catatan..."
+                autocomplete="off">
+
+            <textarea
+                id="isi"
+                placeholder="Tulis isi catatan di sini..."
+                rows="6"></textarea>
+
+            <div class="button-group">
+
+                <button
+                    id="btnSimpan"
+                    onclick="simpanCatatan()">
+                    💾 Simpan Catatan
+                </button>
+
+                <button
+                    id="btnBatal"
+                    class="batal"
+                    onclick="batalEdit()"
+                    style="display: none;">
+                    ❌ Batal
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Cari catatan..."
+                oninput="cariCatatan()">
+
+        </div>
+
+
+        <!-- INFO -->
+        <div class="info">
+
+            <h2>📚 Daftar Catatan</h2>
+
+            <span id="jumlahCatatan">
+                0 Catatan
+            </span>
+
+        </div>
+
+
+        <!-- DAFTAR CATATAN -->
+        <div id="daftarCatatan"></div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

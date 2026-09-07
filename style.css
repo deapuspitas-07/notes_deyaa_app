@@ -1,0 +1,640 @@
+```css
+/* ========================================
+   MY MELODY NOTES APP 🎀
+   Pink Cute Theme
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 10% 20%, #ffd6e7 0 5%, transparent 6%),
+        radial-gradient(circle at 90% 10%, #ffc4dc 0 4%, transparent 5%),
+        radial-gradient(circle at 80% 80%, #ffddea 0 5%, transparent 6%),
+        linear-gradient(
+            135deg,
+            #fff0f6,
+            #ffe3ef,
+            #fff7fa
+        );
+
+    color: #5c3a46;
+}
+
+
+/* ========================================
+   BACKGROUND DECORATION
+======================================== */
+
+body::before {
+    content: "🎀";
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    font-size: 35px;
+
+    opacity: 0.6;
+
+    animation: floating 3s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+body::after {
+    content: "🌸";
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    font-size: 35px;
+
+    opacity: 0.6;
+
+    animation: floating 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+    width: 92%;
+    max-width: 720px;
+
+    margin: auto;
+
+    padding: 35px 0 60px;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 2px solid #ffc1d9;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(224, 112, 151, 0.15);
+}
+
+
+/* Bunny Logo */
+
+.logo {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffb6d2;
+
+    border: 4px solid #fff;
+
+    border-radius: 50%;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 5px 15px rgba(214, 91, 132, 0.2);
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: 30px;
+
+    color: #d95788;
+
+    letter-spacing: 0.5px;
+}
+
+header p {
+    margin: 5px 0 0;
+
+    color: #9b6578;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+.form {
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    border: 2px solid #ffc5db;
+
+    box-shadow:
+        0 12px 30px rgba(214, 91, 132, 0.13);
+}
+
+
+/* Pita dekorasi */
+
+.form::before {
+    content: "🎀";
+
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    font-size: 28px;
+
+    transform: rotate(-10deg);
+}
+
+
+.form h2 {
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    color: #d95788;
+
+    font-size: 21px;
+}
+
+
+/* ========================================
+   INPUT & TEXTAREA
+======================================== */
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 14px;
+
+    border: 2px solid #ffd0e0;
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: #fff9fc;
+
+    color: #5c3a46;
+
+    font-size: 15px;
+
+    font-family: Arial, sans-serif;
+
+    transition: 0.3s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #c596a8;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #f28db3;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(242, 141, 179, 0.15);
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.button-group {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+button {
+    border: none;
+
+    border-radius: 15px;
+
+    padding: 13px 18px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+
+#btnSimpan {
+    flex: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f48fb1,
+            #e96f9d
+        );
+
+    color: white;
+
+    box-shadow:
+        0 6px 15px rgba(233, 111, 157, 0.25);
+}
+
+
+#btnSimpan:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #e96f9d,
+            #d95788
+        );
+}
+
+
+.batal {
+    background: #eadde2;
+
+    color: #805968;
+}
+
+
+.batal:hover {
+    background: #dbcbd2;
+}
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+.search-box {
+    margin-top: 25px;
+}
+
+
+.search-box input {
+    margin: 0;
+
+    background: white;
+
+    border-color: #ffc8dc;
+
+    box-shadow:
+        0 6px 18px rgba(214, 91, 132, 0.08);
+}
+
+
+/* ========================================
+   INFO CATATAN
+======================================== */
+
+.info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 30px;
+
+    margin-bottom: 5px;
+}
+
+
+.info h2 {
+    margin: 0;
+
+    color: #704453;
+
+    font-size: 21px;
+}
+
+
+#jumlahCatatan {
+    background: #f28db3;
+
+    color: white;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 10px rgba(242, 141, 179, 0.2);
+}
+
+
+/* ========================================
+   CARD CATATAN
+======================================== */
+
+.catatan {
+    position: relative;
+
+    background: white;
+
+    margin-top: 15px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    border: 2px solid #ffd5e3;
+
+    border-left: 6px solid #f28db3;
+
+    box-shadow:
+        0 7px 20px rgba(214, 91, 132, 0.1);
+
+    animation: muncul 0.35s ease;
+
+    transition: 0.3s;
+}
+
+
+.catatan:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(214, 91, 132, 0.16);
+}
+
+
+/* Pita kecil di card */
+
+.catatan::after {
+    content: "🌸";
+
+    position: absolute;
+
+    right: 15px;
+    top: 12px;
+
+    font-size: 20px;
+
+    opacity: 0.7;
+}
+
+
+.catatan h3 {
+    margin: 0 35px 8px 0;
+
+    color: #d95788;
+
+    font-size: 19px;
+}
+
+
+.catatan p {
+    color: #765563;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+    margin: 0 0 12px;
+}
+
+
+.tanggal {
+    font-size: 12px;
+
+    color: #b58b9b;
+
+    margin-bottom: 15px;
+}
+
+
+/* ========================================
+   BUTTON EDIT & HAPUS
+======================================== */
+
+.aksi {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.edit,
+.hapus {
+    flex: 1;
+
+    padding: 10px;
+
+    font-size: 13px;
+}
+
+
+/* Edit */
+
+.edit {
+    background: #ffb6d2;
+
+    color: #713d51;
+}
+
+
+.edit:hover {
+    background: #f49cbe;
+}
+
+
+/* Hapus */
+
+.hapus {
+    background: #ff8fae;
+
+    color: white;
+}
+
+
+.hapus:hover {
+    background: #f36f94;
+}
+
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.empty {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    margin-top: 15px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 2px dashed #ffc3da;
+
+    border-radius: 20px;
+
+    color: #a87587;
+}
+
+
+.empty div {
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+.empty h3 {
+    color: #d95788;
+
+    margin-bottom: 5px;
+}
+
+
+/* ========================================
+   ANIMATION
+======================================== */
+
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVE HP
+======================================== */
+
+@media (max-width: 500px) {
+
+    .container {
+        width: 94%;
+
+        padding-top: 20px;
+    }
+
+
+    header {
+        padding: 16px;
+    }
+
+
+    .logo {
+        width: 55px;
+        height: 55px;
+
+        font-size: 30px;
+    }
+
+
+    header h1 {
+        font-size: 24px;
+    }
+
+
+    header p {
+        font-size: 12px;
+    }
+
+
+    .form {
+        padding: 18px;
+    }
+
+
+    .button-group {
+        flex-direction: column;
+    }
+
+
+    .aksi {
+        flex-direction: column;
+    }
+
+
+    .info h2 {
+        font-size: 18px;
+    }
+
+}
+```
