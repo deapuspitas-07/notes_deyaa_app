@@ -1,192 +1,303 @@
-```css
-/* ========================================
+/* =========================================
    MY MELODY NOTES APP 🎀
-   Pink Cute Theme
-======================================== */
+   PINK PASTEL THEME
+========================================= */
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
 
 body {
-    margin: 0;
-    font-family: "Arial", sans-serif;
-
+    width: 100%;
     min-height: 100vh;
 
+    font-family: Arial, sans-serif;
+
+    color: #684252;
+
     background:
-        radial-gradient(circle at 10% 20%, #ffd6e7 0 5%, transparent 6%),
-        radial-gradient(circle at 90% 10%, #ffc4dc 0 4%, transparent 5%),
-        radial-gradient(circle at 80% 80%, #ffddea 0 5%, transparent 6%),
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 190, 215, 0.55) 0,
+            rgba(255, 190, 215, 0.55) 80px,
+            transparent 82px
+        ),
+
+        radial-gradient(
+            circle at 90% 12%,
+            rgba(255, 183, 212, 0.6) 0,
+            rgba(255, 183, 212, 0.6) 75px,
+            transparent 77px
+        ),
+
+        radial-gradient(
+            circle at 82% 90%,
+            rgba(255, 196, 220, 0.5) 0,
+            rgba(255, 196, 220, 0.5) 70px,
+            transparent 72px
+        ),
+
         linear-gradient(
             135deg,
-            #fff0f6,
-            #ffe3ef,
-            #fff7fa
+            #fff1f7,
+            #ffe5ef,
+            #fff5fa
         );
 
-    color: #5c3a46;
+    overflow-x: hidden;
 }
 
 
-/* ========================================
-   BACKGROUND DECORATION
-======================================== */
+/* =========================
+   DEKORASI
+========================= */
 
-body::before {
-    content: "🎀";
+.dekor {
     position: fixed;
 
+    pointer-events: none;
+
+    z-index: 0;
+
+    user-select: none;
+}
+
+
+.dekor-1 {
     top: 20px;
-    left: 20px;
-
-    font-size: 35px;
-
-    opacity: 0.6;
-
-    animation: floating 3s ease-in-out infinite;
-
-    pointer-events: none;
-}
-
-body::after {
-    content: "🌸";
-    position: fixed;
-
-    right: 25px;
-    bottom: 25px;
-
-    font-size: 35px;
-
-    opacity: 0.6;
-
-    animation: floating 4s ease-in-out infinite;
-
-    pointer-events: none;
-}
-
-
-/* ========================================
-   CONTAINER
-======================================== */
-
-.container {
-    width: 92%;
-    max-width: 720px;
-
-    margin: auto;
-
-    padding: 35px 0 60px;
-}
-
-
-/* ========================================
-   HEADER
-======================================== */
-
-header {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 25px;
-
-    padding: 20px;
-
-    background: rgba(255, 255, 255, 0.85);
-
-    border: 2px solid #ffc1d9;
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 10px 30px rgba(224, 112, 151, 0.15);
-}
-
-
-/* Bunny Logo */
-
-.logo {
-    width: 70px;
-    height: 70px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #ffb6d2;
-
-    border: 4px solid #fff;
-
-    border-radius: 50%;
-
-    font-size: 38px;
-
-    box-shadow:
-        0 5px 15px rgba(214, 91, 132, 0.2);
-}
-
-header h1 {
-    margin: 0;
+    left: 25px;
 
     font-size: 30px;
 
-    color: #d95788;
-
-    letter-spacing: 0.5px;
-}
-
-header p {
-    margin: 5px 0 0;
-
-    color: #9b6578;
-
-    font-size: 14px;
+    animation:
+        floating 3s ease-in-out infinite;
 }
 
 
-/* ========================================
-   FORM
-======================================== */
+.dekor-2 {
+    right: 25px;
+    bottom: 40px;
 
-.form {
+    font-size: 30px;
+
+    animation:
+        floating 4s ease-in-out infinite;
+}
+
+
+.dekor-3 {
+    left: 12%;
+    bottom: 15%;
+
+    font-size: 35px;
+
+    color: #f18bb0;
+
+    opacity: 0.5;
+
+    animation:
+        floating 3.5s ease-in-out infinite;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
     position: relative;
 
-    background: rgba(255, 255, 255, 0.95);
+    z-index: 1;
 
-    padding: 25px;
+    width: calc(100% - 40px);
+
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding-top: 32px;
+
+    padding-bottom: 40px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    width: 100%;
+
+    min-height: 120px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 18px 22px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border: 2px solid #ffbfd8;
 
     border-radius: 25px;
 
-    border: 2px solid #ffc5db;
-
     box-shadow:
-        0 12px 30px rgba(214, 91, 132, 0.13);
+        0 10px 30px
+        rgba(210, 83, 132, 0.12);
 }
 
 
-/* Pita dekorasi */
+.logo {
 
-.form::before {
-    content: "🎀";
+    width: 70px;
+
+    min-width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffb6d2,
+            #f38db3
+        );
+
+    border: 5px solid white;
+
+    border-radius: 50%;
+
+    font-size: 37px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(221, 91, 139, 0.2);
+}
+
+
+.header-text {
+    min-width: 0;
+}
+
+
+.header h1 {
+
+    margin: 0;
+
+    color: #d95788;
+
+    font-size: 31px;
+
+    line-height: 1.2;
+}
+
+
+.header p {
+
+    margin-top: 6px;
+
+    color: #a5687c;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card {
+
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 26px;
+
+    padding: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border: 2px solid #ffbfd8;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(210, 83, 132, 0.12);
+
+    overflow: hidden;
+}
+
+
+/* garis dekorasi */
+
+.form-card::before {
+
+    content: "";
 
     position: absolute;
 
-    right: 20px;
-    top: 15px;
+    top: 0;
+    left: 0;
 
-    font-size: 28px;
+    width: 100%;
 
-    transform: rotate(-10deg);
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f28eb4,
+            #ffb6d2,
+            #e96f9d
+        );
 }
 
 
-.form h2 {
-    margin-top: 0;
+.form-header {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
 
     margin-bottom: 20px;
+}
+
+
+.form-header h2 {
 
     color: #d95788;
 
@@ -194,60 +305,97 @@ header p {
 }
 
 
-/* ========================================
-   INPUT & TEXTAREA
-======================================== */
+.ribbon {
+
+    font-size: 27px;
+
+    animation:
+        floating 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-wrapper {
+
+    width: 100%;
+}
+
 
 input,
 textarea {
+
+    display: block;
+
     width: 100%;
 
-    padding: 15px;
+    max-width: 100%;
 
-    margin-bottom: 14px;
+    margin: 0 0 14px 0;
 
-    border: 2px solid #ffd0e0;
+    padding: 14px 15px;
 
-    border-radius: 15px;
+    border: 2px solid #ffd0df;
+
+    border-radius: 14px;
 
     outline: none;
 
-    background: #fff9fc;
+    background: #fffafd;
 
-    color: #5c3a46;
-
-    font-size: 15px;
+    color: #654251;
 
     font-family: Arial, sans-serif;
 
-    transition: 0.3s;
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
 }
+
 
 input::placeholder,
 textarea::placeholder {
-    color: #c596a8;
+
+    color: #c795a8;
 }
+
 
 input:focus,
 textarea:focus {
-    border-color: #f28db3;
+
+    border-color: #ef8fb3;
 
     background: white;
 
     box-shadow:
-        0 0 0 4px rgba(242, 141, 179, 0.15);
+        0 0 0 4px
+        rgba(239, 143, 179, 0.12);
 }
 
+
 textarea {
+
+    min-height: 160px;
+
     resize: vertical;
 }
 
 
-/* ========================================
+/* =========================
    BUTTON
-======================================== */
+========================= */
 
 .button-group {
+
+    width: 100%;
+
     display: flex;
 
     gap: 10px;
@@ -255,217 +403,348 @@ textarea {
 
 
 button {
+
     border: none;
 
-    border-radius: 15px;
-
-    padding: 13px 18px;
-
-    font-size: 14px;
-
-    font-weight: bold;
+    outline: none;
 
     cursor: pointer;
 
-    transition: 0.3s;
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
 }
 
 
 button:hover {
-    transform: translateY(-3px);
+
+    transform: translateY(-2px);
 }
 
 
-#btnSimpan {
+.btn-simpan {
+
     flex: 1;
+
+    min-height: 45px;
+
+    border-radius: 13px;
 
     background:
         linear-gradient(
             135deg,
-            #f48fb1,
+            #f38db3,
             #e96f9d
         );
 
     color: white;
 
     box-shadow:
-        0 6px 15px rgba(233, 111, 157, 0.25);
+        0 6px 15px
+        rgba(233, 111, 157, 0.25);
 }
 
 
-#btnSimpan:hover {
+.btn-simpan:hover {
+
     background:
         linear-gradient(
             135deg,
             #e96f9d,
             #d95788
         );
-}
-
-
-.batal {
-    background: #eadde2;
-
-    color: #805968;
-}
-
-
-.batal:hover {
-    background: #dbcbd2;
-}
-
-
-/* ========================================
-   SEARCH
-======================================== */
-
-.search-box {
-    margin-top: 25px;
-}
-
-
-.search-box input {
-    margin: 0;
-
-    background: white;
-
-    border-color: #ffc8dc;
 
     box-shadow:
-        0 6px 18px rgba(214, 91, 132, 0.08);
+        0 8px 18px
+        rgba(233, 111, 157, 0.3);
 }
 
 
-/* ========================================
-   INFO CATATAN
-======================================== */
+.btn-batal {
 
-.info {
+    display: none;
+
+    padding: 0 18px;
+
+    min-height: 45px;
+
+    border-radius: 13px;
+
+    background: #eadde3;
+
+    color: #795665;
+}
+
+
+.btn-batal:hover {
+
+    background: #ddcbd4;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-card {
+
+    width: 100%;
+
+    height: 52px;
+
     display: flex;
-
-    justify-content: space-between;
 
     align-items: center;
 
-    margin-top: 30px;
+    gap: 10px;
 
-    margin-bottom: 5px;
+    margin-top: 25px;
+
+    padding: 0 15px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border: 2px solid #ffc5da;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(210, 83, 132, 0.08);
 }
 
 
-.info h2 {
+.search-icon {
+
+    flex-shrink: 0;
+
+    font-size: 18px;
+}
+
+
+.search-card input {
+
+    width: 100%;
+
+    height: 100%;
+
     margin: 0;
 
-    color: #704453;
+    padding: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    font-size: 14px;
+}
+
+
+.search-card input:focus {
+
+    border: none;
+
+    box-shadow: none;
+
+    background: transparent;
+}
+
+
+/* =========================
+   LIST HEADER
+========================= */
+
+.list-header {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    margin-bottom: 10px;
+}
+
+
+.list-header h2 {
+
+    color: #694554;
 
     font-size: 21px;
 }
 
 
 #jumlahCatatan {
-    background: #f28db3;
 
-    color: white;
+    flex-shrink: 0;
 
     padding: 7px 13px;
 
     border-radius: 20px;
+
+    background: #ed82aa;
+
+    color: white;
 
     font-size: 12px;
 
     font-weight: bold;
 
     box-shadow:
-        0 4px 10px rgba(242, 141, 179, 0.2);
+        0 4px 10px
+        rgba(237, 130, 170, 0.2);
 }
 
 
-/* ========================================
-   CARD CATATAN
-======================================== */
+/* =========================
+   NOTES CONTAINER
+========================= */
+
+.notes-container {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =========================
+   NOTE CARD
+========================= */
 
 .catatan {
+
     position: relative;
 
-    background: white;
+    width: 100%;
 
-    margin-top: 15px;
+    max-width: 100%;
+
+    margin: 0;
 
     padding: 20px;
 
-    border-radius: 20px;
+    background: white;
 
-    border: 2px solid #ffd5e3;
+    border: 2px solid #ffd1df;
 
-    border-left: 6px solid #f28db3;
+    border-left: 6px solid #ee83aa;
+
+    border-radius: 18px;
 
     box-shadow:
-        0 7px 20px rgba(214, 91, 132, 0.1);
+        0 7px 20px
+        rgba(210, 83, 132, 0.09);
 
-    animation: muncul 0.35s ease;
+    overflow: hidden;
 
-    transition: 0.3s;
+    animation:
+        muncul 0.3s ease;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
 }
 
 
 .catatan:hover {
-    transform: translateY(-4px);
+
+    transform: translateY(-3px);
 
     box-shadow:
-        0 12px 25px rgba(214, 91, 132, 0.16);
+        0 12px 25px
+        rgba(210, 83, 132, 0.14);
 }
 
 
-/* Pita kecil di card */
-
 .catatan::after {
+
     content: "🌸";
 
     position: absolute;
 
-    right: 15px;
     top: 12px;
 
-    font-size: 20px;
+    right: 15px;
 
-    opacity: 0.7;
+    font-size: 19px;
+
+    opacity: 0.8;
 }
 
 
 .catatan h3 {
-    margin: 0 35px 8px 0;
+
+    margin: 0;
+
+    padding-right: 35px;
 
     color: #d95788;
 
     font-size: 19px;
+
+    line-height: 1.4;
+
+    word-break: break-word;
 }
 
 
 .catatan p {
+
+    margin-top: 9px;
+
+    margin-bottom: 12px;
+
     color: #765563;
+
+    font-size: 14px;
 
     line-height: 1.7;
 
     white-space: pre-wrap;
 
-    margin: 0 0 12px;
+    word-break: break-word;
 }
 
 
 .tanggal {
-    font-size: 12px;
-
-    color: #b58b9b;
 
     margin-bottom: 15px;
+
+    color: #b38a9b;
+
+    font-size: 11px;
 }
 
 
-/* ========================================
-   BUTTON EDIT & HAPUS
-======================================== */
+/* =========================
+   ACTION BUTTON
+========================= */
 
 .aksi {
+
+    width: 100%;
+
     display: flex;
 
     gap: 8px;
@@ -474,17 +753,21 @@ button:hover {
 
 .edit,
 .hapus {
+
     flex: 1;
 
-    padding: 10px;
+    min-height: 38px;
+
+    padding: 9px;
+
+    border-radius: 11px;
 
     font-size: 13px;
 }
 
 
-/* Edit */
-
 .edit {
+
     background: #ffb6d2;
 
     color: #713d51;
@@ -492,149 +775,273 @@ button:hover {
 
 
 .edit:hover {
-    background: #f49cbe;
+
+    background: #f39dbd;
 }
 
 
-/* Hapus */
-
 .hapus {
-    background: #ff8fae;
+
+    background: #ff8eae;
 
     color: white;
 }
 
 
 .hapus:hover {
-    background: #f36f94;
+
+    background: #f37499;
 }
 
 
-/* ========================================
-   EMPTY STATE
-======================================== */
+/* =========================
+   EMPTY
+========================= */
 
 .empty {
+
+    width: 100%;
+
+    padding: 40px 20px;
+
     text-align: center;
 
-    padding: 45px 20px;
-
-    margin-top: 15px;
-
-    background: rgba(255, 255, 255, 0.9);
+    background:
+        rgba(255, 255, 255, 0.92);
 
     border: 2px dashed #ffc3da;
 
-    border-radius: 20px;
+    border-radius: 18px;
 
-    color: #a87587;
+    color: #aa788b;
 }
 
 
-.empty div {
-    animation: floating 3s ease-in-out infinite;
+.empty-icon {
+
+    margin-bottom: 10px;
+
+    font-size: 42px;
+
+    animation:
+        floating 3s ease-in-out infinite;
 }
 
 
 .empty h3 {
-    color: #d95788;
 
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+
+    color: #d95788;
 }
 
 
-/* ========================================
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    position: relative;
+
+    z-index: 1;
+
+    padding: 10px 20px 25px;
+
+    text-align: center;
+
+    color: #b4778b;
+
+    font-size: 12px;
+}
+
+
+/* =========================
    ANIMATION
-======================================== */
+========================= */
 
 @keyframes muncul {
 
     from {
+
         opacity: 0;
 
-        transform: translateY(15px);
+        transform:
+            translateY(12px);
     }
 
     to {
+
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
-
 }
 
 
 @keyframes floating {
 
     0% {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-8px);
+
+        transform:
+            translateY(-7px);
     }
 
     100% {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 700px) {
+
+    .container {
+
+        width: calc(100% - 30px);
+
+        padding-top: 20px;
     }
 
 }
 
 
-/* ========================================
-   RESPONSIVE HP
-======================================== */
+/* =========================
+   HP
+========================= */
 
 @media (max-width: 500px) {
 
     .container {
-        width: 94%;
 
-        padding-top: 20px;
+        width: calc(100% - 24px);
+
+        padding-top: 15px;
     }
 
 
-    header {
-        padding: 16px;
+    .header {
+
+        min-height: 100px;
+
+        padding: 15px;
+
+        border-radius: 20px;
     }
 
 
     .logo {
-        width: 55px;
-        height: 55px;
+
+        width: 58px;
+
+        min-width: 58px;
+
+        height: 58px;
 
         font-size: 30px;
     }
 
 
-    header h1 {
-        font-size: 24px;
+    .header h1 {
+
+        font-size: 25px;
     }
 
 
-    header p {
+    .header p {
+
         font-size: 12px;
     }
 
 
-    .form {
+    .form-card {
+
         padding: 18px;
+
+        margin-top: 18px;
+
+        border-radius: 20px;
+    }
+
+
+    .form-header h2 {
+
+        font-size: 18px;
+    }
+
+
+    textarea {
+
+        min-height: 140px;
     }
 
 
     .button-group {
+
         flex-direction: column;
+    }
+
+
+    .btn-batal {
+
+        width: 100%;
+
+        padding: 12px;
+    }
+
+
+    .list-header h2 {
+
+        font-size: 18px;
+    }
+
+
+    .catatan {
+
+        padding: 17px;
+
+        border-radius: 16px;
     }
 
 
     .aksi {
+
         flex-direction: column;
     }
 
 
-    .info h2 {
-        font-size: 18px;
+    .edit,
+    .hapus {
+
+        width: 100%;
+    }
+
+
+    .dekor-1 {
+
+        left: 10px;
+
+        font-size: 22px;
+    }
+
+
+    .dekor-2 {
+
+        right: 10px;
+
+        font-size: 22px;
     }
 
 }
-```
